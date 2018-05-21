@@ -1,6 +1,7 @@
 package com.gsafety.entity;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 /**
  *
@@ -12,34 +13,54 @@ import javax.persistence.*;
 @Table(name = "tbl_user")
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private String userId = UUID.randomUUID().toString().replaceAll("-", "");
 
-    private String name;
+    private String userEmail;
 
-    private String password;
+    private String userName;
 
-    public long getId() {
-        return id;
+    private String userPass;
+
+    /** 0 表示未激活*/
+    private int state = 0 ;
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
-    public String getName() {
-        return name;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getPassword() {
-        return password;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPass() {
+        return userPass;
+    }
+
+    public void setUserPass(String userPass) {
+        this.userPass = userPass;
+    }
+
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
     }
 }
