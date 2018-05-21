@@ -12,8 +12,9 @@ import org.springframework.context.annotation.ComponentScan;
  */
 @SpringBootApplication
 @ComponentScan(basePackages = "com.gsafety")
-public class Entry {
+public class Application {
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(Entry.class, args);
+        SpringApplication.run(Application.class, args);
     }
+
 }
